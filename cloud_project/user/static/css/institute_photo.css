@@ -1,0 +1,183 @@
+html,
+body {
+  height: 100%;
+  widows: 100%;
+  width: 100%;
+  margin-right: 0px;
+  font-family:'Arimo', sans-serif !important;
+  background-color: #f7f8fa;
+}
+.navbar {
+  padding: 0.8rem;
+  height: 70px;
+  background-color: #fff;
+  margin-top: 0%;
+  box-shadow: 1px 5px 12px 3px #888888 !important;
+
+}
+.navbar-brand{
+
+}
+.navbar.nav li {
+  padding-right: 150px;
+  margin-left: 50px !important;
+
+}
+
+
+.nav-link {
+  font-size: 12px;
+  color: #000;
+  font-family: 'Arimo', sans-serif;
+}
+.dropbtn {
+  background-color:#813B6A;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 31px;
+  width: 123px;
+  height: 43px;
+  font-family: 'Arimo', sans-serif;
+  display: inline;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 190px;
+
+}
+
+.dropdown-content a {
+  color: #000;
+  padding: 12px 46px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Roboto Slab', serif;
+  font-size: 16px;
+}
+#forminput input{
+  border-radius: 26px;
+  background-color: #f7f8fa;
+
+}
+.institutelink{
+  display: inline;
+  position: relative;
+  top: 2px;
+  width:2050px !important;
+  margin-left: -60px;
+
+}
+.institutelink li a{
+ width:275px; height: 30px; display: inline-table;
+}
+.card{
+  margin-left: -100px;
+}
+.social a {
+  font-size: 26px;
+  padding: 3rem;
+}
+.fa-facebook-f {
+  color: #3b5998;
+  font-size: 29px;
+}
+.fa-twitter {
+  color: #80aced;
+  font-size: 29px;
+}
+
+.fa-instagram {
+  color: #517fa4;
+  font-size: 29px;
+}
+.fa-linkedin-in {
+  color: #3b5998;
+  font-size: 29px;
+}
+
+footer {
+  background-color: #e7e9e9;
+  color: #000;
+  grid-area: footer;
+  position: absolute;
+  margin-bottom: 0 !important;
+  width: 100%;
+}
+hr.light {
+  border-top: 1px solid #000;
+  width: 100%;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+}
+footer p {
+  color: #000;
+
+}
+footer h5 {
+  color: #000;
+}
+hr.light-100 {
+  border-top: 1px solid #000;
+  width: 100%;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {display: block;}
+/*
+@media screen and (min-width: 576px) {
+  footer{
+    position: absolute;
+    top: 1800px;
+  }
+  .institutelink li a{
+    width: 110px;
+    left: 0;
+
+  }
+  .jumbotron{
+    margin-top: 20px;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .institutelink li a{
+    width: 180px;
+    left: 0;
+  }
+  .jumbotron{
+    margin-top: 30px;
+  }
+
+}
+@media screen and (min-width: 992px){
+  .institutelink li a{
+    width: 200px;
+    left: 0;
+
+}
+  .jumbotron{
+    margin-top: 20px;
+  }
+}
+
+@media screen and (min-width: 1200px){
+  .institutelink li a{
+    width: 275px;
+    left: 0;
+}
+.jumbotron{
+  margin-top: 30px;
+}
+}
+*/

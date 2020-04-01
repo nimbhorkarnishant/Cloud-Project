@@ -1,0 +1,302 @@
+html,
+body {
+  widows: 100%;
+  width: 100%;
+  margin-right: 0px;
+  font-family:'Arimo', sans-serif;
+  background-color: #FFFBFE;
+}
+.navbar {
+  padding: 0.8rem;
+  height: 95px;
+  background-color: #FFF;
+  margin-top: 0%;
+
+}
+.navbar-brand{
+
+}
+.navbar.nav li {
+  padding-right: 150px;
+  margin-left: 50px !important;
+
+}
+
+.nav-link {
+  font-size: 12px;
+  color: #000;
+  font-family: 'Arimo', sans-serif;
+}
+
+.dropbtn {
+  background-color: #813B6A;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 31px;
+  width: 123px;
+  height: 43px;
+  font-family: 'Arimo', sans-serif;
+  display: inline;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 190px;
+
+}
+
+.dropdown-content a {
+  color: #000;
+  padding: 12px 46px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Roboto Slab', serif;
+  font-size: 16px;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.social a {
+  font-size: 46px;
+  padding: 3rem;
+}
+.fa-facebook-f {
+  color: #3b5998;
+  font-size: 29px;
+}
+.fa-twitter {
+  color: #80aced;
+  font-size: 29px;
+}
+
+.fa-instagram {
+  color: #517fa4;
+  font-size: 29px;
+}
+.fa-linkedin-in {
+  color: #3b5998;
+  font-size: 29px;
+}
+.imagecontainer{
+  width: 65%;
+  position: relative;
+  left: 60px;
+  top: 60px;
+  font-family: 'Open Sans', sans-serif;
+}
+.institutelink{
+  display: inline;
+  position: relative;
+  top: 50px;
+  right: 35px;
+  font-family: 'Open Sans', sans-serif;
+}
+.institutelist{
+  width: 30%;
+  float: right;
+  position: absolute;
+  top: 25%;
+  right: 0%;
+}
+.page-link{
+  color: #4CB3F5;
+  width:168px;
+  height: 70px;
+  display: inline-table;
+}
+
+footer {
+  background-color: #FFFBFE!important;
+  color: #000;
+  grid-area: footer;
+  position: absolute;
+  top: 1300px !important;
+  margin-bottom: 0 !important;
+  width: 100%;
+  font-family: 'Arimo', sans-serif;
+}
+hr.light {
+  border-top: 1px solid #000;
+  width: 100%;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+}
+footer p {
+  color: #000!important;
+
+}
+footer h5 {
+  color: #000;
+}
+hr.light-100 {
+  border-top: 1px solid #000;
+  width: 100%;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+}
+#institutedetails1{
+  position: relative;
+  top: 5rem;
+  right: 3rem;
+  width: 78%;
+}
+
+/*
+@media (min-width: 320px) {
+  .navbar{
+    width: 52rem;
+  }
+  footer {
+    width:52rem;
+    margin-top: 10rem;
+
+}
+
+.imagecontainer{
+  width:52rem;
+  margin-left: -60px;
+  margin-top: -30px;
+}
+ .institutelink{
+   width:52rem;
+
+ }
+.institutedetails{
+  width: 68rem;
+  margin-left:40px;
+
+}
+.jumbotron{
+
+}
+.institutelist{
+
+
+}
+
+.page-link{
+
+}
+}
+
+
+@media (min-width: 576px) {
+  .navbar{
+    width: 71rem;
+  }
+  footer {
+    width:71rem;
+    margin-top: 10rem;
+
+  }
+
+.imagecontainer{
+  width:120rem;
+  margin-left: -350px;
+  margin-top: -30px;
+  }
+  .institutelink{
+   width:52rem;
+
+  }
+  .institutedetails{
+  width: 68rem;
+  margin-left:40px;
+
+  }
+  .jumbotron{
+
+  }
+  .institutelist{
+
+
+  }
+
+  .page-link{
+
+  }
+
+
+@media (min-width: 768px) {
+  .navbar{
+    width: 52rem;
+  }
+  footer {
+    width:52rem;
+    margin-top: 10rem;
+
+  }
+
+  .imagecontainer{
+  width:60rem;
+  margin-left: -60px;
+  margin-top: -30px;
+  }
+  .institutelink{
+   width:52rem;
+
+  }
+  .institutedetails{
+  width: 68rem;
+  margin-left:40px;
+
+  }
+  .jumbotron{
+
+  }
+  .institutelist{
+
+
+  }
+
+  .page-link{
+
+  }
+
+
+@media (min-width:980px) {
+  .navbar{
+    width: 52rem;
+  }
+  footer {
+    width:52rem;
+    margin-top: 10rem;
+
+  }
+
+  .imagecontainer{
+  width:52rem;
+  margin-left: -60px;
+  margin-top: -30px;
+  }
+  .institutelink{
+   width:52rem;
+
+  }
+  .institutedetails{
+  width: 68rem;
+  margin-left:40px;
+
+  }
+  .jumbotron{
+
+  }
+  .institutelist{
+
+
+  }
+
+  .page-link{
+
+  }
+}
+*/

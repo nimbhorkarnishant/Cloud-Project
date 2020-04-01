@@ -1,0 +1,649 @@
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+
+html,
+body {
+  height: auto;
+  widows: 100%;
+  width: 100%;
+  margin-right: 0px;
+  font-family:'Arimo', sans-serif !important;
+  background-color: #f7f8fa;
+}
+/*font Awesome http://fontawesome.io*/
+/*Comment List styles*/
+.comment-container{
+  background-color: #f7f8fa;
+  margin-left:-10px;
+  border:2px,black;
+  height:auto;
+  overflow-wrap: break-word;
+
+
+
+}
+.comment-list .row {
+  margin-bottom: 0px;
+}
+.comment-list .panel .panel-heading {
+  padding: 4px 15px;
+  position: absolute;
+  border:none;
+  /*Panel-heading border radius*/
+  border-top-right-radius:0px;
+  top: 1px;
+}
+.comment-list .panel .panel-heading.right {
+  border-right-width: 0px;
+  /*Panel-heading border radius*/
+  border-top-left-radius:0px;
+  right: 16px;
+}
+.comment-list .panel .panel-heading .panel-body {
+  padding-top: 6px;
+}
+.comment-list figcaption {
+  /*For wrapping text in thumbnail*/
+  word-wrap: break-word;
+}
+
+/* Portrait tablets and medium desktops */
+@media (min-width: 768px) {
+  .comment-list .arrow:after, .comment-list .arrow:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent;
+  }
+  .comment-list .panel.arrow.left:after, .comment-list .panel.arrow.left:before {
+    border-left: 0;
+  }
+  /*****Left Arrow*****/
+  /*Outline effect style*/
+  .comment-list .panel.arrow.left:before {
+    left: 0px;
+    top: 30px;
+    /*Use boarder color of panel*/
+    border-right-color: inherit;
+    border-width: 16px;
+  }
+  /*Background color effect*/
+  .comment-list .panel.arrow.left:after {
+    left: 1px;
+    top: 31px;
+    /*Change for different outline color*/
+    border-right-color: #FFFFFF;
+    border-width: 15px;
+  }
+  /*****Right Arrow*****/
+  /*Outline effect style*/
+  .comment-list .panel.arrow.right:before {
+    right: -16px;
+    top: 30px;
+    /*Use boarder color of panel*/
+    border-left-color: inherit;
+    border-width: 16px;
+  }
+  /*Background color effect*/
+  .comment-list .panel.arrow.right:after {
+    right: -14px;
+    top: 31px;
+    /*Change for different outline color*/
+    border-left-color: #FFFFFF;
+    border-width: 15px;
+  }
+}
+.comment-list .comment-post {
+  margin-top: 6px;
+}
+
+
+.navbar {
+  padding: 0.8rem;
+  height: 70px;
+  background-color: #fff;
+  margin-top: 0%;
+  box-shadow: 1px 5px 12px 3px #888888 !important;
+
+}
+.navbar-brand{
+
+}
+.navbar.nav li {
+  padding-right: 150px;
+  margin-left: 50px !important;
+
+}
+
+
+.nav-link {
+  font-size: 12px;
+  color: #000;
+  font-family: 'Arimo', sans-serif;
+}
+.dropbtn {
+  background-color:#813B6A;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 31px;
+  width: 123px;
+  height: 43px;
+  font-family: 'Arimo', sans-serif;
+  display: inline;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 190px;
+
+}
+
+.dropdown-content a {
+  color: #000;
+  padding: 12px 46px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Roboto Slab', serif;
+  font-size: 16px;
+}
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.institutelink{
+  display: inline;
+  position: relative;
+  top: 1.6rem;
+  left: -6.4rem;
+  width:100%;
+
+}
+.institutelink li a{
+ width:9rem;
+ height: 5px;
+ margin-left: 1rem;
+ display: inline-table;
+ font-size: 15px !important;
+ background-color:  #813B6A;
+ color: #fff;
+}
+.Addpostbtn{
+  width: 40%;
+  position: relative;
+  top: 5rem;
+  left: 25.3rem;
+  background-color: #fff;
+  height: 8rem;
+  margin-left: 55px;
+
+}
+.Addpostbtn img{
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.Addpostbtn input{
+  border-radius: 36px;
+  height: 5rem;
+  margin: 29px;
+  margin-left: 5px;
+  margin-top: 13px;
+  width: 80%;
+  border-width: 2px #000;
+
+}
+.Addpostbtn span{
+
+  position: relative;
+  left: 0rem;
+  bottom: 6rem;
+}
+.hero {
+  padding: 6.25rem 0px !important;
+  margin: 0px !important;
+
+
+}
+.containernew{
+  width:40%;
+  margin-left:460px;
+  overflow-wrap: break-word;
+
+}
+.cardbox {
+  border-radius: 3px;
+  margin-bottom: 20px;
+  padding: 0px !important;
+}
+
+.cardbox .cardbox-heading {
+  padding: 16px;
+  margin: 0;
+}
+.cardbox .btn-flat.btn-flat-icon {
+ border-radius: 50%;
+ font-size: 24px;
+ height: 32px;
+ width: 32px;
+ padding: 0;
+ overflow: hidden;
+ color: #fff !important;
+ background: #b5b6b6;
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+}
+.cardbox .float-right .dropdown-menu{
+  position: relative;
+  left: 13px !important;
+}
+.cardbox .float-right a:hover{
+  background: #f4f4f4 !important;
+}
+.cardbox .float-right a.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 4px 0px 4px 10px;
+  clear: both;
+  font-weight: 400;
+  font-family: 'Abhaya Libre', serif;
+  font-size: 14px !important;
+  color: #848484;
+  text-align: inherit;
+  white-space: nowrap;
+  background: 0 0;
+  border: 0;
+}
+
+
+.media {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+.d-flex {
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+.media .mr-3{
+  margin-right: 1rem !important;
+}
+.media img{
+  width: 48px !important;
+  height: 48px !important;
+  padding: 2px;
+  border: 2px solid #f4f4f4;
+}
+.media-body {
+  -ms-flex: 1;
+  flex: 1;
+  padding: .4rem !important;
+}
+.media-body p{
+  font-family: 'Rokkitt', serif;
+  font-weight: 500 !important;
+  font-size: 14px;
+  color: #88898a;
+}
+.media-body small span{
+  font-family: 'Rokkitt', serif;
+  font-size: 12px;
+  color: #aaa;
+  margin-right: 10px;
+}
+
+
+
+.cardbox .cardbox-item {
+    position: relative;
+    display: block;
+}
+.cardbox .cardbox-item img{
+}
+.img-responsive{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.fw {
+    width: 100% !important;
+  height: auto;
+}
+
+.cardbox-base{
+ border-bottom: 2px solid #f4f4f4;
+}
+.cardbox-base ul{
+ margin: 10px 0px 10px 15px!important;
+ padding: 10px !important;
+ font-size: 0px;
+  display: inline-block;
+}
+.cardbox-base li {
+  list-style: none;
+  margin: 0px 0px 0px -8px !important;
+  padding: 0px 0px 0px 0px !important;
+  display: inline-block;
+}
+
+.cardbox-base li a{
+  margin: 0px !important;
+  padding: 0px !important;
+}
+.cardbox-base li a i{
+ position: relative;
+ top: 4px;
+ font-size: 16px;
+ color: #8d8d8d;
+ margin-right: 15px;
+}
+.cardbox-base li a span{
+ font-family: 'Rokkitt', serif;
+ font-size: 14px;
+ color: #8d8d8d;
+ margin-left: 20px;
+ position: relative;
+ top: 5px;
+}
+.cardbox-base li a em{
+ font-family: 'Rokkitt', serif;
+ font-size: 14px;
+ color: #8d8d8d;
+ position: relative;
+ top: 3px;
+}
+.cardbox-base li a img{
+  width: 25px;
+  height: 25px;
+  margin: 0px !important;
+  border: 2px solid #fff;
+}
+
+
+
+.cardbox-comments{
+  padding: 10px 40px 20px 40px !important;
+  font-size: 0px;
+  text-align: center;
+  display: inline-block;
+}
+.cardbox-comments .comment-avatar img{
+  margin-top: 1px;
+  margin-right: 10px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+}
+.cardbox-comments .comment-body {
+  overflow: auto;
+}
+.search {
+ position: relative;
+ right: -60px;
+ top: -40px;
+ margin-bottom: -40px;
+ width: 100%;
+ overflow: hidden;
+}
+.search input[type="text"] {
+ background-color: #fff;
+ line-height: 10px;
+ padding: 15px 60px 20px 10px;
+ border: none;
+ border-radius: 4px;
+ width: 350px;
+ font-family: 'Rokkitt', serif;
+ font-size: 14px;
+ color: #8d8d8d;
+ height: inherit;
+ font-weight: 700;
+}
+.search button {
+ position: absolute;
+ right: 0;
+ top: 0px;
+ border: none;
+ background-color: transparent;
+ color: #bbbbbb;
+ padding: 15px 25px;
+ cursor: pointer;
+
+ display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+}
+.search button i {
+ font-size: 20px;
+ line-height: 30px;
+ display: block;
+}
+
+
+a{
+    color:#47649F;
+}
+
+body{
+    font-family:'helvetica';
+}
+
+
+.post-footer-option li{
+    float:left;
+    margin-right:50px;
+    padding-bottom:15px;
+}
+
+.post-footer-option li a{
+    color:#AFB4BD;
+    font-weight:500;
+    font-size:1.3rem;
+}
+
+.photo-profile{
+    border:1px solid #DDD;
+}
+
+.anchor-username h6{
+    font-weight:bold;
+    color: #000;
+}
+
+.anchor-time{
+    color:#000;
+    font-size:0.8rem;
+}
+
+.post-footer-comment-wrapper{
+    background-color:#F6F7F8;
+}
+
+
+.social a {
+  font-size: 26px;
+  padding: 3rem;
+}
+.fa-facebook-f {
+  color: #3b5998;
+  font-size: 29px;
+}
+.fa-twitter {
+  color: #80aced;
+  font-size: 29px;
+}
+
+.fa-instagram {
+  color: #517fa4;
+  font-size: 29px;
+}
+.fa-linkedin-in {
+  color: #3b5998;
+  font-size: 29px;
+}
+
+
+footer {
+  background-color: #e7e9e9;
+  color: #000;
+  grid-area: footer;
+  position: absolute;
+  margin-bottom: 0 !important;
+  width: 100%;
+}
+hr.light {
+  border-top: 1px solid #000;
+  width: 100%;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+}
+footer p {
+  color: #000;
+
+}
+footer h5 {
+  color: #000;
+}
+hr.light-100 {
+  border-top: 1px solid #000;
+  width: 100%;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+}
+// Breakpoint viewport sizes and media queries.
+//
+// Breakpoints are defined as a map of (name: minimum width), order from small to large:
+//
+//    (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)
+//
+// The map defined in the `$grid-breakpoints` global variable is used as the `$breakpoints` argument by default.
+
+// Name of the next breakpoint, or null for the last breakpoint.
+//
+//    >> breakpoint-next(sm)
+//    md
+//    >> breakpoint-next(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    md
+//    >> breakpoint-next(sm, $breakpoint-names: (xs sm md lg xl))
+//    md
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+  $n: index($breakpoint-names, $name);
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+// Minimum breakpoint width. Null for the smallest (first) breakpoint.
+//
+//    >> breakpoint-min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    576px
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+// Maximum breakpoint width. Null for the largest (last) breakpoint.
+// The maximum value is calculated as the minimum of the next one less 0.02px
+// to work around the limitations of `min-` and `max-` prefixes and viewports with fractional widths.
+// See https://www.w3.org/TR/mediaqueries-4/#mq-min-max
+// Uses 0.02px rather than 0.01px to work around a current rounding bug in Safari.
+// See https://bugs.webkit.org/show_bug.cgi?id=178261
+//
+//    >> breakpoint-max(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    767.98px
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+  $next: breakpoint-next($name, $breakpoints);
+  @return if($next, breakpoint-min($next, $breakpoints) - .02px, null);
+}
+
+// Returns a blank string if smallest breakpoint, otherwise returns the name with a dash in front.
+// Useful for making responsive utilities.
+//
+//    >> breakpoint-infix(xs, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    ""  (Returns a blank string)
+//    >> breakpoint-infix(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    "-sm"
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+  @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+}
+
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Makes the @content apply to the given breakpoint and narrower.
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media that spans multiple breakpoint widths.
+// Makes the @content apply between the min and max breakpoints
+@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($lower, $breakpoints);
+  $max: breakpoint-max($upper, $breakpoints);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($lower, $breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($upper, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+// Media between the breakpoint's minimum and maximum widths.
+// No minimum for the smallest breakpoint, and no maximum for the largest one.
+// Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
+@mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  $max: breakpoint-max($name, $breakpoints);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($name, $breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($name, $breakpoints) {
+      @content;
+    }
+  }
+}

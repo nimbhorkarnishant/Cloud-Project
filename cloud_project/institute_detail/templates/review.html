@@ -1,0 +1,418 @@
+{% load pwa %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  {% progressive_web_app_meta %}
+  <title>Learncess|Institute Review Details</title>
+  <meta charset="utf-8">
+  <meta name="keyword" content="Best Institute In Pune,Best Institute In Mumbai,Best Institute In Aurangabad,Best Institute In Nagpur">
+  <meta name="author" content="Sandesh Deshmukh">
+  <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'css/review.css'%}"
+    />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Open+Sans+Condensed:300|Playfair+Display+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel:900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    />
+    <link href="/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/css/mdb.min.css" rel="stylesheet">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <style media="screen">
+      .rating {
+            float:left;
+          }
+
+          /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t
+            follow these rules. Every browser that supports :checked also supports :not(), so
+            it doesn’t make the test unnecessarily selective */
+          .rating:not(:checked) > input {
+              position:absolute;
+              top:-9999px;
+              clip:rect(0,0,0,0);
+          }
+
+          .rating:not(:checked) > label {
+              float:right;
+              width:1em;
+              /* padding:0 .1em; */
+              overflow:hidden;
+              white-space:nowrap;
+              cursor:pointer;
+              font-size:240%;
+              /* line-height:1.2; */
+              color:#ddd;
+          }
+
+          .rating:not(:checked) > label:before {
+              content: '★ ';
+          }
+
+          .rating > input:checked ~ label {
+              color:  #813B6A;
+
+          }
+
+          .rating:not(:checked) > label:hover,
+          .rating:not(:checked) > label:hover ~ label {
+              color:  #813B6A;
+
+          }
+
+          .rating > input:checked + label:hover,
+          .rating > input:checked + label:hover ~ label,
+          .rating > input:checked ~ label:hover,
+          .rating > input:checked ~ label:hover ~ label,
+          .rating > label:hover ~ input:checked ~ label {
+              color:  #813B6A;
+
+          }
+
+          .rating > label:active {
+              position:relative;
+              top:2px;
+              left:2px;
+          }
+  </style>
+</head>
+<body style="background-color: #FFFBFE;">
+  <!--header -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container-fluid">
+        {% for i in rating_percent %}
+        <a class="navbar-brand" href="{% url 'home1' %}?user_id={{i.user_id}}">
+          <p class="display-4" style="font-size: 30px; font-family: 'Cinzel', serif; color: #000;">Learncess</p>
+        </a>
+        {% endfor %}
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <!--<div class="dropdown">
+              <button class="dropbtn">Category</button>
+              <div class="dropdown-content">
+                <a href="#">JEE-MAIN&ADVANCE Classes</a>
+                <a href="#">CET&NEET Classes</a>
+                <a href="#">UPSC& OTHER.GOV Classes</a>
+                <a href="#">BANK PO Classes</a>
+                <a href="#">CAT Classes</a>
+                <a href="#">GATE Classes</a>
+                <a href="#">FOUNDATION Classes</a>
+              </div>-->
+            </div>
+          <!--<ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+
+              <button type="button" class="btn btn-outline" style="border-radius: 36px; width: 180px; height: 40px; font-size: 12px; display: inline-block; margin-left: 15px;"><a class="nav-link" href="" style="font-size: 10px; color: #000; padding-bottom: 3px; font-family: 'Arimo', sans-serif; display: inline;">Add Classroom</a></button>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn btn-outline" id="Loginbutton"style="width:120px; height: 45px;  display: inline-block;margin-left: 15px; border-radius: 36px; background-color: #813B6A;" ><a class="nav-link" href="{% url 'login' %}" style="font-size: 10px; color: #fff;  font-family: 'Arimo', sans-serif; display: inline;">Log In</a></button>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn btn-outline" id="Loginbutton"style="width: 130px; height: 45px;  display: inline-block;margin-left: 15px; border-radius: 36px; background-color: #813B6A;"><a class="nav-link"  href="{% url 'register' %}" style="font-size: 10px; color: #fff; font-family: 'Arimo', sans-serif;display: inline;">Sign up</a></button>
+            </li>
+          </ul>-->
+        </div>
+      </div>
+    </nav>
+    {% if messages %}
+        {% for message in messages %}
+          <div class="alert {% if message.tags == 'success' %}alert-success{% else %}alert-danger{% endif %} alert-dismissable" style="width:80%;margin-left:160px;margin-top:15px;">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <strong>{{ message.tags|title }}!</strong>
+                {{ message }}
+           </div>
+         {% endfor %}
+     {% endif %}
+    <section class="imagecontainer" style="width: 65%;
+    position: relative;
+    left: 150px;
+    top: 60px;
+    font-family: 'Open Sans', sans-serif;">
+      <div class="container">
+        <div class="row">
+          {% for i in institute_data %}
+          <div class="card mb-3">
+            <img class="card-img-top" src="{{i.institute_logo.url}}
+" alt="Bansal logo">
+            <div class="card-body" style="background-color: #F8F8F8;">
+              <h5 class="card-title" style="font-size: 34px;font-weight: 50px;">{{i.institute_name}}</h5>
+              <hr>
+              {% for i in rating_percent %}
+        <button class="btn btn-success" style="font-size: 22px; float: right; border-radius: 36px;">{{i.avg_rating}}/5</button>
+          {% endfor %}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--main-->
+    <main class="institutelink" style=" display: inline; position: relative; top: 50px; right: 35px;
+    font-family: 'Open Sans', sans-serif;">
+      <div class="container">
+        <div class="row">
+          <div class="card" style="position: relative; right:12px;padding: 0;">
+            <div class="card-body">
+              {% for i in rating_percent %}
+                {% for j in institute_data%}
+              <ul class="pagination pagination-lg" style="border:15px #000; ">
+                <li class="page-item"><a class="page-link" href="{% url 'view_detail_overview' %}?user_institute_id={{i.user_id}}/{{j.id}}" style="color: #4CB3F5; width:168px; height: 70px; display: inline-table;">Overview</a></li>
+                <li class="page-item"><a class="page-link" href="{% url 'view_institute_review' %}?user_institute_id={{i.user_id}}/{{j.id}}" style="color: #39D024; width:168px;height: 70px; display: inline-table;">Review</a></li>
+                <li class="page-item"><a class="page-link" href="{% url 'view_faculty_detail' %}?user_institute_id={{i.user_id}}/{{j.id}}" style="color: #4CB3F5;width:168px;height: 70px; display: inline-table;">Faculity</a></li>
+                <li class="page-item"><a class="page-link" href="{% url 'view_institute_result' %}?user_institute_id={{i.user_id}}/{{j.id}}" style="color: #4CB3F5;width:168px;height: 70px; display: inline-table;">Result</a></li>
+                <li class="page-item"><a class="page-link" href="{% url 'view_institute_photos' %}?user_institute_id={{i.user_id}}/{{j.id}}" style="color: #4CB3F5;width:168px;height: 70px; display: inline-table;">Photos</a></li>
+              </ul>
+              {% endfor %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!--main details-->
+    <main class="institutereview">
+      <div class="container">
+        <div class="jumbotron"style="background-color: #fff;margin-top: 80px; padding-top: 15px;padding-left: 15px; width: 77%; position: relative; left: -50px; padding: 50px;">
+              <div class="row">
+                {% for i in rating_percent %}
+                  <div class="col-md-12">
+                      <p style="font-weight: bold; font-size: 25px;">100% genuine reviews from real master based on real experiences</p>
+                      <small>Learncess rating is based on weighted average method of calculation that takes into account multiple factors such as votes, user credibility and local trends to come up with a score that you can rely on.</small>
+                        <div class="col-md-3">
+                        <button class="btn btn-success" style="font-size: 30px;position: absolute; top: 35px; left: -10px; border-radius: 36px;">{{i.avg_rating}}/5</button>
+                      </div>
+                    </div>
+                <div class="col-md-9" style="margin-left: 180px; margin-top: 3rem;">
+                  <div class="progress">
+                        <p style="background-color: #fff; margin-right: 29px;">5 Star</p>
+                        <div class="progress-bar bg-success" role="progressbar" style="width: {{i.review_5_perc}}%; border-radius: 10px;" aria-valuenow="47" aria-valuemin="0" aria-valuemax="100"></div>
+                        <p style="background-color:#fff;position: relative; float: right; margin-left: 29px;">{{i.review_5_perc}}%</p>
+                      </div>
+                      <div class="progress" style="margin-top: 10px;">
+                                    <p style="background-color: #fff; margin-right: 29px;">4 Star</p>
+                        <div class="progress-bar bg-info" role="progressbar" style="width: {{i.review_4_perc}}%;border-radius: 10px;" aria-valuenow="34" aria-valuemin="0" aria-valuemax="100"></div>
+                        <p style="background-color:#fff;position: relative; float: right; margin-left: 29px;">{{i.review_4_perc}}%</p>
+                      </div>
+                      <div class="progress" style="margin-top: 10px;">
+                        <p style="background-color: #fff; margin-right: 29px;">3 Star</p>
+                        <div class="progress-bar bg-warning" role="progressbar" style="width:{{i.review_3_perc}}%;border-radius: 10px; " aria-valuenow="9" aria-valuemin="0" aria-valuemax="100"></div><p style="background-color:#fff;position: relative; float: right; margin-left: 29px;">{{i.review_3_perc}}%</p>
+                      </div>
+                      <div class="progress" style="margin-top: 10px;">
+                        <p style="background-color: #fff; margin-right: 29px;">2 Star</p>
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: {{i.review_2_perc}}%;border-radius: 10px;" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100"></div><p style="background-color:#fff;position: relative; float: right; margin-left: 29px;">{{i.review_2_perc}}%</p>
+                      </div>
+                      <div class="progress" style="margin-top: 10px;">
+                        <p style="background-color: #fff; margin-right: 29px;">1 Star</p>
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: {{i.review_1_perc}}%; border-radius: 10px;" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div><p style="background-color:#fff;position: relative; float: right; margin-left: 29px;">{{i.review_1_perc}}%</p>
+                      </div>
+                      {% endfor %}
+                </div>
+
+              </div>
+            </div>
+      </div>
+    </main>
+    <main class="addreview" >
+      <div class="container">
+          <div class="jumbotron" style="background-color: #fff;margin-top: 20px; padding-top: 15px;padding-left: 15px; width: 77%; position: relative; left: -50px; padding: 50px;">
+            <p><small>Please write review and rating carefully because this will help to students to bring there future</small></p>
+            {% for i in rating_percent %}
+            <form method="post" action="/adding_review/?user_institute_id={{i.user_id}}/{{i.institute_id}}">
+              {% csrf_token %}
+              {% endfor %}
+              <div class="">
+                <p><i class="far fa-user-circle" style="font-size: 70px; padding-right: 10px;"></i></p>
+                <p class="display-5" style="font-weight: bold; font-size:20px;margin-left:-20px;margin-top:-20px;">Write a Review</p>
+                <div class="row">
+                	<div class="rating">
+                      <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Great">5 stars</label>
+                      <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Excellent">4 stars</label>
+                      <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="very Good">3 stars</label>
+                      <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Good">2 stars</label>
+                      <input type="radio" id="star1" name="rating" value="1" required="required"/><label for="star1" title="Worst">1 star</label>
+                  </div>
+                </div>
+                  <div class="addreviewbox" style="position: relative; left:0rem;bottom:0rem;width:450px;">
+                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value="Give review about Institute" name="review_text" required>Give review about Institute</textarea>
+                  </div>
+                  <div class="addreviewbutton">
+                    <button class="btn btn-outline " type="submit" style="color: #fff; background-color: #813B6A; border-radius: 36px;  display: inline !important;position: relative; left: 20rem;bottom:0rem;">Add Review</button>
+                  </div>
+              </div>
+        </form>
+      </div>
+    </main>
+    <main class="readreview" >
+      <div class="container">
+          <div class="jumbotron" style="background-color: #fff;margin-top: 20px; padding-top: 15px;width: 100%; position: relative;left: -50px;">
+            <div class="row">
+              <div class="col-sm-7">
+                <div class="review-block">
+                  {% for i in review %}
+                  <div class="row">
+                    {% for j in user %}
+                    <div class="col-sm-3">
+                      {% for pro in user_profile_data %}
+                      {% ifequal i.user_id pro.user_id%}
+                      <img src="{{pro.user_profile.url}}" class="img-rounded" alt="" style="width:60px;height:60px;">
+                      {% for user in user_detail %}
+                      {% ifequal i.user_id user.id %}
+                      <div class="review-block-name"><a href="#">{{user.first_name}} {{user.last_name}}</a></div>
+                      {% endifequal %}
+                      {% endfor %}
+                      {% endifequal%}
+                      {% endfor %}
+                      <div class="review-block-date">{{i.date}}<br/></div>
+                    </div>
+                    <div class="col-sm-9">
+                      {% for user in user_detail %}
+                      {% ifequal i.user_id user.id %}
+                      <div id='rating' style=" position:relative; ">
+                        {% if i.review_star == 1 %}
+                          <span value="{{i.review_star}}"><i class="fas fa-star" style="font-size: 25px;color:red"></i></span>
+                        {% elif i.review_star == 2 %}
+                          <span value="{{i.review_star}}"><i class="fas fa-star" style="font-size: 25px;color:gold"></i></span>
+                          <span value="{{i.review_star}}"><i class="fas fa-star" style="font-size: 25px;color:gold"></i></span>
+                        {% elif i.review_star == 3 %}
+                          <span value="{{i.review_star}}"><i class="fas fa-star" style="font-size: 25px;color:gold"></i></span>
+                          <span value="{{i.review_star}}"><i class="fas fa-star" style="font-size: 25px;color:gold"></i></span>
+                          <span value="{{i.review_star}}"><i class="fas fa-star" style="font-size: 25px;color:gold"></i></span>
+                        {% elif i.review_star == 4 %}
+                          <span value="{{i.review_star}}"><i class="fas fa-star" style="font-size: 25px;color:darkgreen"></i></span>
+                          <span value="{{i.review_star}}"><i class="fas fa-star" style="font-size: 25px;color:darkgreen"></i></span>
+                          <span value="{{i.review_star}}"><i class="fas fa-star" style="font-size: 25px;color:darkgreen"></i></span>
+                          <span value="{{i.review_star}}"><i class="fas fa-star" style="font-size: 25px;color:darkgreen"></i></span>
+                          {% else %}
+                          <span value="{{i.review_star}}"><i class="fas fa-star" style="font-size: 25px;color:darkgreen"></i></span>
+                          <span value="{{i.review_star}}"><i class="fas fa-star" style="font-size: 25px;color:darkgreen"></i></span>
+                          <span value="{{i.review_star}}"><i class="fas fa-star" style="font-size: 25px;color:darkgreen"></i></span>
+                          <span value="{{i.review_star}}"><i class="fas fa-star" style="font-size: 25px;color:darkgreen"></i></span>
+                          <span value="{{i.review_star}}"><i class="fas fa-star" style="font-size: 25px;color:darkgreen"></i></span>
+                        {% endif %}
+                      </div>
+                      {% endifequal %}
+                      {% endfor %}
+                      <div class="review-block-description">{{i.review}}</div>
+                    </div>
+                    {% endfor %}
+                  </div>
+                  <hr/>
+                  {% endfor %}
+
+                  </div>
+                </div>
+              </div>
+            </div>
+      </main>
+
+
+
+    <!--<main class="institutelist" style="width: 30%;
+    float: right;position: absolute; top: 25%; right: 0%;">
+    <p style="font-family:'Arimo', sans-serif; font-size: 25px; position: relative; left: 19px;">Recommendation</p>
+    <p style="font-family: 'Open Sans Condensed', sans-serif;font-size: 19px; position: relative; left:19px;">Institute In Similar Type</p>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card" style="width: 11rem; height: 18rem;">
+            <img class="card-img-top" src="{% static 'media/website_images/b9asd1.gif' %}"
+" alt="Aakash main Photo">
+            <div class="card-body">
+              <p class="card-text">Aakash Institute <br><small style="color: #7E7C7C;">PMC Tower, Indra Vihar, Kota.(+91)- 8800013087</small></p>
+            </div>
+          </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card" style="width: 11rem;height: 18rem;">
+            <img class="card-img-top" src="{% static 'media/website_images/allien.jpg'%}" alt="Allien photo">
+            <div class="card-body">
+              <p class="card-text">Allien Career Institute <br><small style="color: #7E7C7C;">"SANKALP" CP-6, Indra Vihar Kota (Rajasthan), India 324005.+91-744-2757575</small></p>
+            </div>
+          </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card" style="width: 11rem;margin-top:15px;height: 18rem;">
+            <img class="card-img-top" src="{% static 'media/website_images/resonance-new-color-logo.jpg' %}
+" alt="Resonance Photo">
+            <div class="card-body">
+              <p class="card-text"> Resonance Institute <br> <small style="color: #7E7C7C;">CG Tower, A-46 & 52, IPIA,
+                        Near City Mall, Jhalawar Road,
+            Kota(Raj.) .(0)744 2777777, 2777700 </small></p>
+            </div>
+          </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card" style="width: 11rem;margin-top:15px;height: 18rem;">
+            <img class="card-img-top" src=""{% static 'media/website_images/rao-iit-academy-wardha-ad20y.jpg' %}
+" alt="Vibrant">
+            <div class="card-body">
+              <p class="card-text">Vibrant Academy <small style="color: #7E7C7C;">Vibrant Tower : A-14(A),
+            Road No.1, Indraprastha Industrial Area,
+            Kota -324005 (Rajasthan) India.(+91)-  0744-2778899</small></p>
+            </div>
+          </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card" style="width: 11rem;margin-top:15px;height: 18rem;">
+            <img class="card-img-top" src="{% static 'media/website_images/rao-iit-academy-wardha-ad20y.jpg' %}
+" alt="Rao-IIT-Academy Photo">
+            <div class="card-body">
+              <p class="card-text">Rao-IIT-Academy<small style="color: #7E7C7C;">Talwandi-Kota
+            . 022-62433500</small></p>
+            </div>
+          </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card" style="width: 11rem;margin-top:15px;height: 18rem;">
+            <img class="card-img-top" src="{static 'media/website_images/download.jpeg' %}
+" alt="Motion Institute Photo">
+            <div class="card-body">
+              <p class="card-text">Motion IIT Institute <small style="color: #7E7C7C;">394, Rajeev Gandhi Nagar,
+            Kota (Rajasthan) India – 324005.ph-1800-212-1799</small></p>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </main>-->
+
+    <!--footer-->
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/js/mdb.min.js"></script>
+    <script type="text/javascript" src="/home/sandesh/Desktop/NewLearncess/DETAILS/review.js"></script>
+
+  </body>
+</html>

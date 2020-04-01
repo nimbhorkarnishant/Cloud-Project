@@ -1,0 +1,521 @@
+{% load pwa  %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    {% progressive_web_app_meta %}
+    <title>Learncess|Home</title>
+    <!--repositive site-->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--CSS file -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'css/main.css'%}"
+    />
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Open+Sans+Condensed:300|Playfair+Display+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel:900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Heebo:800&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/css/mdb.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!--header -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <p class="display-4" style="font-size: 30px; font-family: 'Cinzel', serif; color: #000;">Learncess</p>
+        </a>
+
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <!--<div class="dropdown">
+              <button class="dropbtn">Category</button>
+              <div class="dropdown-content">
+                <a href="#">JEE-MAIN&ADVANCE Classes</a>
+                <a href="#">CET&NEET Classes</a>
+                <a href="#">UPSC& OTHER.GOV Classes</a>
+                <a href="#">BANK PO Classes</a>
+                <a href="#">CAT Classes</a>
+                <a href="#">GATE Classes</a>
+                <a href="#">FOUNDATION Classes</a>
+              </div>-->
+            </div>
+          <ul class="navbar-nav ml-auto">
+            <div class="dropdown">
+              <button type="button" class="dropbtn" id="featurebutton"style="width:150px; height: 45px; margin-top:5px;  display: inline-block;margin-left: 15px; border-radius: 36px; background-color: #813B6A;" ><a class="nav-link"   style="font-size: 12px; color: #fff;  font-family: 'Arimo', sans-serif; display: inline;"><b>Features</b></button>
+              <div class="dropdown-content" style="margin-top:5px;margin-left:-50px;">
+                {% for i in new_user %}
+                <a href="{% url 'View_profile' %}?user_id={{i.id}}">Your Profile</a>
+                <a href="{% url 'gate_question_paper' %}?user_id={{i.id}}/gate">Study Material</a>
+                <a href="{% url 'update_institute_detail' %}?user_id={{i.id}}">Institute Pannel</a>
+                <a href="{% url 'logout' %}">Logout</a>
+              </div>
+            </div>
+            <li class="nav-item">
+              <button type="button" class="btn btn-outline" style="border-radius: 36px; width: 180px; height: 40px; font-size: 12px; display: inline-block; margin-left: 15px;"><a class="nav-link" href="{%url 'add_institute'%}?user_id={{i.id}}" style="font-size: 10px; color: #000; padding-bottom: 3px; font-family: 'Arimo', sans-serif; display: inline;">Add Classroom</a></button>
+            </li>
+        </div>
+        {% endfor %}
+      </div>
+    </nav>
+    <!--MAIN -IMAGE-->
+    <div class="s013">
+      <div class="container-fluid">
+        <div class="main-img">
+          <img
+            src="{% static 'media/website_images/Screenshot%20from%202019-06-18%2015-05-28.png'%}
+
+"           class="img-responsive"
+            style="position: absolute; right: 690px;"
+          />
+          {% if messages %}
+              {% for message in messages %}
+                <div class="alert {% if message.tags == 'success' %}alert-success{% else %}alert-danger{% endif %} alert-dismissable" style="width:80%;margin-left:160px;margin-top:15px;">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong>{{ message.tags|title }}!</strong>
+                      {{ message }}
+                 </div>
+               {% endfor %}
+           {% endif %}
+            {% for i in new_user %}
+            <form method="post" action="/search_result/?user_id={{i.id}}">
+              {% csrf_token %}
+            {% endfor %}
+                {% csrf_token %}
+            <fieldset id="mainhead">
+              <legend style="font-size: 45px; font-family:'Arimo', sans-serif;"> <br></legend>
+            </fieldset>
+            <div class="form-group" id="cityinput">
+              <select class="custom-select" required="required" name="location" >
+                <option selected="" value="None">select City</option>
+                <option value="Pune">Pune</option>
+                <option value="Aurangabad">Aurangabad</option>
+                <option value="Mumbai">Mumbai</option>
+              </select>
+            </div>
+            <div class="search-bar">
+                 <input type="text" class="search__input"  placeholder="Search courses(eg iit jee,neet)"  name='courses' >
+                 <i class="ion-ios-search search__icon"></i>
+               <button  class="search__btn" style="color:#FFF" >Search</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="whyus">
+      <img src="{% static 'media/website_images/Witching%20Hour.jpg'%}
+" class="img-responsive" >
+      <div class="content1">
+        <h5><span><i class="fas fa-university"></i></span>Finding best <br> learning center</h5>
+      </div>
+      <div class="content2">
+        <h5><span><i class="fas fa-book"></i></span> Get Free<br>Geniue Content </h5>
+      </div>
+      <div class="content3">
+        <h5><span><i class="far fa-newspaper"></i></span> Get MockTest and other study <br> material For practise Free</h5>
+      </div>
+    </div>
+    <!--best of classes head-->
+
+    <!--list down best institute in cities-->
+
+    <div class="main">
+      <div class="card-deck" id="cardmain">
+        <a href="">
+          <!-- Card -->
+            <div class="card booking-card" id="cardfirst">
+
+              <!-- Card image -->
+              <div class="view overlay" id="card2">
+                <img class="card-img-top" src="{% static 'media/website_images/Vibrant-1.jpg'%}" alt="Card image cap" class="img-responsive">
+                <a href="#!">
+                  <div class="mask rgba-purple-slight"></div>
+                </a>
+              </div>
+
+              <!-- Card content -->
+              <div class="card-body" id="card3">
+
+                <!-- Title -->
+                <h4 class="card-title font-weight-bold"><a>Vibrant Academy</a></h4>
+                <!-- Data -->
+                <ul class="list-unstyled list-inline rating mb-0">
+                  <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"> </i></li>
+                  <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                  <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                  <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                  <li class="list-inline-item"><i class="fas fa-star-half-alt amber-text"></i></li>
+                  <li class="list"><p class="text-muted">4.5 (413)</p></li>
+                </ul>
+                <p class="mb-2">Indraprastha Industrial Area,Kota </p>
+
+                <hr class="my-4">
+                <p class="lead"><strong>Courses availability</strong></p>
+                <ul class="list-unstyled list-inline d-flex justify-content-between mb-0" id="coursesfont">
+                  <li class="list-inline-item mr-0">
+                    <div class="chip mr-0">JEE-MAIN</div>
+                  </li>
+                  <li class="list-inline-item mr-0">
+                    <div class="chip  mr-0">JEE-MAIN&ADVANCE</div>
+                  </li>
+                  <li class="list-inline-item mr-0">
+                    <div class="chip mr-0">NEET & CET</div>
+                  </li>
+                  <li class="list-inline-item mr-0">
+                    <div class="chip mr-0">CET</div>
+                  </li>
+                </ul>
+
+
+              </div>
+
+            </div>
+<!-- Card -->
+        </a>
+        <a href="">
+          <div class="card booking-card" id="card12">
+
+              <!-- Card image -->
+              <div class="view overlay" id="card2">
+                <img class="card-img-top" src="{% static 'media/website_images/b9asd1.gif'%}" alt="Card image cap" class="img-responsive">
+                <a href="#!">
+                  <div class="mask rgba-purple-slight"></div>
+                </a>
+              </div>
+
+              <!-- Card content -->
+              <div class="card-body" id="card3">
+
+                <!-- Title -->
+                <h4 class="card-title font-weight-bold"><a>Aakash Institute </a></h4>
+                <!-- Data -->
+                <ul class="list-unstyled list-inline rating mb-0">
+                  <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"> </i></li>
+                  <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                  <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                  <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                  <li class="list-inline-item"><i class="fas fa-star alt amber-text"></i></li>
+                  <li class="list"><p class="text-muted">4.2 (913)</p></li>
+                </ul>
+                <p class="mb-2">Indra Vihar,Kota</p>
+
+                <hr class="my-4">
+                <p class="lead"><strong>Courses availability</strong></p>
+                <ul class="list-unstyled list-inline d-flex justify-content-between mb-0" id="coursesfont">
+                  <li class="list-inline-item mr-0">
+                    <div class="chip mr-0">JEE-MAIN</div>
+                  </li>
+                  <li class="list-inline-item mr-0">
+                    <div class="chip  mr-0">JEE-MAIN&ADVANCE</div>
+                  </li>
+                  <li class="list-inline-item mr-0">
+                    <div class="chip mr-0">NEET & CET</div>
+                  </li>
+                  <li class="list-inline-item mr-0">
+                    <div class="chip mr-0">CET</div>
+                  </li>
+                </ul>
+
+
+              </div>
+
+            </div>
+<!-- Card -->
+        </a>
+
+        <a href="#index.html">
+          <div class="card booking-card" id="card123">
+
+              <!-- Card image -->
+              <div class="view overlay" id="card2">
+                <img class="card-img-top" src="{% static 'media/website_images/allien.jpg'%}" alt="Card image cap" class="img-responsive">
+                <a href="#!">
+                  <div class="mask rgba-purple-slight"></div>
+                </a>
+              </div>
+
+              <!-- Card content -->
+              <div class="card-body" id="card3">
+
+                <!-- Title -->
+                <h4 class="card-title font-weight-bold"><a>Allien Career Institute </a></h4>
+                <!-- Data -->
+                <ul class="list-unstyled list-inline rating mb-0">
+                  <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"> </i></li>
+                  <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                  <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                  <li class="list-inline-item "><i class="fas fa-star alt amber-text"></i></li>
+                  <li class="list-inline-item"><i class="fas fa-star-half-alt amber-text"></i></li>
+                  <li class="list"><p class="text-muted">4.5 (413)</p></li>
+                </ul>
+                <p class="mb-2">Indra Vihar Kota (Rajasthan)</p>
+                <hr class="my-4">
+                <p class="lead"><strong>Courses availability</strong></p>
+                <ul class="list-unstyled list-inline d-flex justify-content-between mb-0" id="coursesfont">
+                  <li class="list-inline-item mr-0">
+                    <div class="chip mr-0">JEE-MAIN</div>
+                  </li>
+                  <li class="list-inline-item mr-0">
+                    <div class="chip  mr-0">JEE-MAIN&ADVANCE</div>
+                  </li>
+                  <li class="list-inline-item mr-0">
+                    <div class="chip mr-0">NEET & CET</div>
+                  </li>
+                  <li class="list-inline-item mr-0">
+                    <div class="chip mr-0">CET</div>
+                  </li>
+                </ul>
+
+
+              </div>
+
+            </div>
+<!-- Card -->
+        </a>
+        <a href="">
+          <div class="card booking-card" id="card1234">
+
+              <!-- Card image -->
+              <div class="view overlay" id="card2">
+                <img class="card-img-top" src="{% static 'media/website_images/resonance-new-color-logo.jpg'%}" alt="Card image cap" class="img-responsive">
+                <a href="#!">
+                  <div class="mask rgba-purple-slight"></div>
+                </a>
+              </div>
+
+              <!-- Card content -->
+              <div class="card-body" id="card3">
+
+                <!-- Title -->
+                <h4 class="card-title font-weight-bold"><a>Resonance Institute </a></h4>
+                <!-- Data -->
+                <ul class="list-unstyled list-inline rating mb-0" >
+                  <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"> </i></li>
+                  <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                  <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                  <li class="list-inline-item "><i class="fas fa-star amber-text"></i></li>
+                  <li class="list-inline-item"><i class="fas fa-star-half-alt amber-text"></i></li>
+                  <li class="list"><p class="text-muted">4.0 (410)</p></li>
+                </ul>
+                <p class="mb-2">Jhalawar Road,Kota(Raj.)</p>
+                <hr class="my-4">
+                <p class="lead"><strong>Courses's availability</strong></p>
+                <ul class="list-unstyled list-inline d-flex justify-content-between mb-0" id="coursesfont">
+                  <li class="list-inline-item mr-0">
+                    <div class="chip mr-0">JEE-MAIN</div>
+                  </li>
+                  <li class="list-inline-item mr-0">
+                    <div class="chip  mr-0">JEE-MAIN&ADVANCE</div>
+                  </li>
+                  <li class="list-inline-item mr-0">
+                    <div class="chip mr-0">NEET & CET</div>
+                  </li>
+                  <li class="list-inline-item mr-0">
+                    <div class="chip mr-0">CET</div>
+                  </li>
+                </ul>
+
+              </div>
+
+            </div>
+<!-- Card -->
+        </a>
+      </div>
+    </div>
+
+    <!-- <div class="bg-modal">
+      <div class="modal-contents">
+        <p class="display-4" style="font-size: 18px; font-weight: bold;">
+          SignUp & LogIn in to Learncess
+        </p>
+        <hr />
+
+        <div class="close">+</div>
+        <div class="google-fb button">
+          <button class="btn btn-outline">
+            <img
+              src="/home/sandesh/Desktop/Learncess/learncess home/IMAGE/facebook (1).png"
+              style="display: flex; justify-content: flex-start; "
+            />
+          </button>
+          <button class="btn btn-outline">
+            <img
+              src="/home/sandesh/Desktop/Learncess/learncess home/IMAGE/google (1).png "
+              style="display: flex; justify-content: flex-start; "
+            />
+          </button>
+        </div>
+        <hr />
+        OR
+        <hr />
+        <p class="display-4" style="font-size: 18px; font-weight: bold;">
+          Use Your Email Address
+        </p>
+
+        <button
+          class="btn btn-success"
+          style="color: #fff; font-size: 14px; padding: 26px; width: 146px; display: flex; justify-content: flex-start; display: block; position: absolute;"
+        >
+          Log in
+        </button>
+        <button
+          class="btn btn-outline"
+          style="font-size: 14px; padding: 26px; width: 146px;  display: block; float: right; position: relative; border-color: #000;"
+        >
+          Sign up
+        </button>
+      </div>
+    </div> -->
+
+
+
+    <!--footer-->
+    <footer class="page-footer font-small unique-color-dark">
+      <div style="background-color: #813B6A;">
+        <div class="container">
+          <!-- Grid row-->
+          <div class="row py-4 d-flex align-items-center">
+            <!-- Grid column -->
+            <div
+              class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0"
+            >
+              <h6 class="mb-0">Get connected with us on social networks!</h6>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-6 col-lg-7 text-center text-md-right">
+              <!-- Facebook -->
+              <a class="fb-ic">
+                <i class="fab fa-facebook-f white-text mr-4"> </i>
+              </a>
+              <!-- Twitter -->
+              <a class="tw-ic">
+                <i class="fab fa-twitter white-text mr-4"> </i>
+              </a>
+
+              <!--Linkedin -->
+              <a class="li-ic">
+                <i class="fab fa-linkedin-in white-text mr-4"> </i>
+              </a>
+              <!--Instagram-->
+              <a class="ins-ic">
+                <i class="fab fa-instagram white-text"> </i>
+              </a>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row-->
+        </div>
+      </div>
+
+      <!-- Footer Links -->
+      <div class="container text-center text-md-left mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <a class="navbar-brand" href="#">
+              <p class="display-4" style="font-size: 30px; font-family: 'Cinzel', serif; color: #000;">Learncess</p>
+            </a>
+
+            <p>
+              <small>
+                <b>
+                Just over a few years ago,we became victim of something fascinating,How we suppose
+                thing and places need not to be actually up to that mark,same with the education system in India.
+                WE Learncess,basicaaly a startup that helps students and you all to find authenticity of institutes so that you can make better informed decision
+                and founded with strong intention to guide and shape young minds to test themselves in this compititive world.</b>
+
+              </small>
+            </p>
+          </div>
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4" style="color: #000;">
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+            <hr
+              class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px; color: #000;"
+            />
+            <p>
+              <a href="#!"style=" color: #000;">Your Account</a>
+            </p>
+            <p>
+              <a href="#!"style=" color: #000;">Add Classroom</a>
+            </p>
+            <p>
+              <a href="#!"style=" color: #000;">Registration</a>
+            </p>
+            <p>
+              <a href="#!"style=" color: #000;">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold" style="color: #000;">Contact</h6>
+            <hr
+              class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px;"
+            />
+            <p><i class="fas fa-home mr-3"></i> Dehu phata,Alandi, PUNE 412105, INDIA</p>
+            <p>
+              <i class="fas fa-envelope mr-3"></i> learncess@gmail.com
+            </p>
+            <p><i class="fas fa-phone mr-3"></i> + 918999632335</p>
+            <p><i class="fas fa-print mr-3"></i> </p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+      <!-- Footer Links -->
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3" style="background-color:#000;">
+        © 2019 Copyright:
+        <a href="http://127.0.0.1:8000/">
+          Learncess.com</a
+        >
+      </div>
+    </footer>
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/js/mdb.min.js"></script>
+
+
+  </body>
+</html>

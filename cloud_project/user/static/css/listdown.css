@@ -1,0 +1,276 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,700");
+
+html,
+body {
+  height: 100%;
+  widows: 100%;
+  width: 100%;
+  margin-right: 0px;
+  font-family:'Arimo', sans-serif;
+  background-color: #FFFBFE;
+}
+.navbar {
+  padding: 0.8rem;
+  height: 70px;
+  background-color: #FFF;
+  margin-top: 0%;
+
+  box-shadow: 1px 5px 12px 3px #888888;
+
+}
+.navbar-brand{
+
+}
+.navbar.nav li {
+  padding-right: 150px;
+  margin-left: 50px !important;
+
+}
+
+
+.nav-link {
+  font-size: 12px;
+  color: #000;
+  font-family: 'Arimo', sans-serif;
+}
+
+
+.dropbtn {
+  background-color: #813B6A;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 31px;
+  width: 123px;
+  height: 43px;
+  font-family: 'Arimo', sans-serif;
+  display: inline;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: 0% !important;
+  background-color: #fff;
+  min-width: 190px;
+
+
+}
+
+.dropdown-content a {
+  color: #000;
+  padding: 12px 46px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Roboto Slab', serif;
+  font-size: 16px;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+
+
+#contentcontainer{
+ display: none;
+}
+#mainhead h4{
+  font-size: 16px;
+
+}
+#mainhead p {
+  font-size: 1.3rem;
+}
+#mainhead{
+  height: 0.8rem;
+
+}
+
+
+.social a {
+  font-size: 46px;
+  padding: 3rem;
+}
+.fa-facebook-f {
+  color: #3b5998;
+  font-size: 29px;
+}
+.fa-twitter {
+  color: #80aced;
+  font-size: 29px;
+}
+
+.fa-instagram {
+  color: #517fa4;
+  font-size: 29px;
+}
+.fa-linkedin-in {
+  color: #3b5998;
+  font-size: 29px;
+}
+
+footer {
+  background-color: #FFFBFE!important;
+  color: #000;
+  grid-area: footer;
+  position: absolute;
+  top: 1300px !important;
+  margin-bottom: 0 !important;
+  width: 100%;
+  font-family: 'Arimo', sans-serif;
+}
+hr.light {
+  border-top: 1px solid #000;
+  width: 100%;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+}
+footer p {
+  color: #000!important;
+
+}
+footer h5 {
+  color: #000;
+}
+hr.light-100 {
+  border-top: 1px solid #000;
+  width: 100%;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+/*
+@media (min-width: 320px) {
+
+  footer {
+  background-color: #e7e9e9;
+  color: #000;
+  grid-area: footer;
+  position: absolute;
+  top: 3000px !important;
+  margin-bottom: 0 !important;
+  width: 100%;
+  font-family: 'Arimo', sans-serif;
+}
+  .dropdown-content {
+  display: none;
+  position: absolute;
+  left: 130px;
+  background-color: #fff;
+  min-width: 100px;
+
+}
+  .navbar.nav li {
+  margin-left: 0;
+  margin-top: 10%;
+
+}
+
+
+
+#maincontainer{
+  width: 40rem;
+  height: 36rem !important;
+  position: absolute;
+  top: 10rem!important;
+  left: 15rem;
+}
+#contentcontainer{
+ display: none;
+}
+#mainhead h4{
+  font-size: 16px;
+
+}
+#mainhead p {
+  font-size: 1.3rem;
+}
+#mainhead{
+  height: 0.8rem;
+
+}
+
+}
+
+@media (min-width: 768px) {
+
+
+  footer {
+  background-color: #e7e9e9;
+  color: #000;
+  grid-area: footer;
+  position: absolute;
+  top: 1500px !important;
+  margin-bottom: 0 !important;
+  width: 100%;
+  font-family: 'Arimo', sans-serif;
+}
+  .dropdown-content {
+  display: none;
+  position: absolute;
+  left: 130px;
+  background-color: #fff;
+  min-width: 100px;
+
+}
+  .navbar.nav li {
+  margin-left: 0;
+  margin-top: 10%;
+
+}
+}
+
+@media (min-width: 992px) {
+
+  footer {
+  background-color: #e7e9e9;
+  color: #000;
+  grid-area: footer;
+  position: absolute;
+  top: 3000px !important;
+  margin-bottom: 0 !important;
+  width: 100%;
+  font-family: 'Arimo', sans-serif;
+}
+  .dropdown-content {
+  display: none;
+  position: absolute;
+  left: 130px;
+  background-color: #fff;
+  min-width: 100px;
+
+}
+
+
+}
+
+
+@media (min-width: 1200px) {
+
+
+  footer {
+  background-color: #e7e9e9;
+  color: #000;
+  grid-area: footer;
+  position: absolute;
+  top: 1350px !important;
+  margin-bottom: 0 !important;
+  width: 100%;
+  font-family: 'Arimo', sans-serif;
+}
+  .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 100px;
+
+}
+
+
+}
+*/

@@ -1,0 +1,376 @@
+{% load pwa %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Learncess|Institute Details</title>
+	<meta charset="utf-8">
+	<link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'css/over_view.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Open+Sans+Condensed:300|Playfair+Display+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel:900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    />
+    <link href="/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/css/mdb.min.css" rel="stylesheet">
+    <script>
+
+    </script>
+</head>
+<body style="background-color: #FFFBFE;">
+	<!--header -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container-fluid">
+				{% for i in user %}
+        <a class="navbar-brand" href="{% url 'home1' %}?user_id={{i.user_id}}">
+          <p class="display-4" style="font-size: 30px; font-family: 'Cinzel', serif; color: #000;">Learncess</p>
+        </a>
+        {% endfor %}
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <!--  <div class="dropdown">
+              <button class="dropbtn">Category</button>
+              <div class="dropdown-content">
+                <a href="#">JEE-MAIN&ADVANCE Classes</a>
+                <a href="#">CET&NEET Classes</a>
+                <a href="#">UPSC& OTHER.GOV Classes</a>
+                <a href="#">BANK PO Classes</a>
+                <a href="#">CAT Classes</a>
+                <a href="#">GATE Classes</a>
+                <a href="#">FOUNDATION Classes</a>
+              </div>-->
+            </div>
+        <!--  <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+
+              <button type="button" class="btn btn-outline" style="border-radius: 36px; width: 180px; height: 40px; font-size: 12px; display: inline-block; margin-left: 15px;"><a class="nav-link" href="#" style="font-size: 10px; color: #000; padding-bottom: 3px; font-family: 'Arimo', sans-serif; display: inline;">Add Classroom</a></button>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn btn-outline" id="Loginbutton"style="width:120px; height: 45px;  display: inline-block;margin-left: 15px; border-radius: 36px; background-color: #813B6A;" ><a class="nav-link" href="{% url 'login' %}" style="font-size: 10px; color: #fff;  font-family: 'Arimo', sans-serif; display: inline;">Log In</a></button>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn btn-outline" id="Loginbutton"style="width: 130px; height: 45px;  display: inline-block;margin-left: 15px; border-radius: 36px; background-color: #813B6A;"><a class="nav-link"  href="{% url 'register' %}" style="font-size: 10px; color: #fff; font-family: 'Arimo', sans-serif;display: inline;">Sign up</a></button>
+            </li>
+          </ul>-->
+        </div>
+      </div>
+    </nav>
+    <section class="imagecontainer" style="margin-left:100px;">
+      <div class="container">
+        <div class="row">
+          <div class="card mb-3">
+						{% for i in institute_details %}
+            <img class="card-img-top" src="{{i.institute_logo.url}}" alt="Bansal logo">
+            <div class="card-body" style="background-color: #F8F8F8;">
+              <h5 class="card-title" style="font-size: 34px;font-weight: 50px;">{{i.institute_name}}</h5>
+							{% endfor %}
+              <hr>
+              <!--<button class="btn btn-success" style="font-size: 22px; float: right; border-radius: 36px;">4.6/5</button>-->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--main-->
+    <main class="institutelink">
+      <div class="container">
+        <div class="row">
+          <div class="card">
+            <div class="card-body">
+							{% for i in user %}
+                {% for j in institute_details %}
+              <ul class="pagination pagination-lg" style="border:15px #000; ">
+                <li class="page-item"><a class="page-link" href="{% url 'view_detail_overview' %}?user_institute_id={{i.user_id}}/{{j.id}}"style="color: #39D024;">Overview</a></li>
+                <li class="page-item"><a class="page-link" href="{% url 'view_institute_review' %}?user_institute_id={{i.user_id}}/{{j.id}}" >Review</a></li>
+                <li class="page-item"><a class="page-link" href="{% url 'view_faculty_detail' %}?user_institute_id={{i.user_id}}/{{j.id}}">Faculity</a></li>
+                <li class="page-item"><a class="page-link" href="{% url 'view_institute_result' %}?user_institute_id={{i.user_id}}/{{j.id}}">Result</a></li>
+                <li class="page-item"><a class="page-link" href="{% url 'view_institute_photos' %}?user_institute_id={{i.user_id}}/{{j.id}}">Photos</a></li>
+              </ul>
+							{% endfor %}
+						{% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!--main details-->
+    <main class="institutedetails" style="font-family: 'Open Sans', sans-serif;width:'300px;'">
+			{% for i in institute_details %}
+
+		  <div class="container" >
+        <div class="jumbotron" id="institutedetails1">
+          <div class="row">
+             <div class="col-sm-4">
+            	<p class="display-4" style="font-size: 21px; font-weight: bold;">Contact Number</p>
+              <p class="display-4" style="color: #39D024; font-size: 18px;font-weight: 12px;"><span><i class="fas fa-phone mr-3"></i></span>{{i.institute_mobile_no}}<br>{{i.institute_mobile_no2}}</p>
+              <br>
+							<table border="1" width="90%" style="margin-left:-25px;">
+								<tr>
+									<td>
+										<p class="display-4" style="font-size: 14px; font-weight: bold;">Course Name</p>
+									</td>
+									<td><p class="display-4" style="font-size: 14px; font-weight: bold;">Course Fees</p>
+									</td>
+								</tr>
+								{% for j in course_details %}
+								<tr>
+									<td><small style="font-size: 13px;"><b>{{j.course_name}}</b></small><br></td>
+									<td><small style="font-size: 13px;"><b>RS.{{j.cousrse_fees}} only</b></small><br></td>
+								</tr>
+								{% endfor %}
+							</table>
+
+						</div>
+            <div class="col-sm-4">
+              <p class="display-4" style="font-size: 21px; font-weight:bold;">Contact Us</p>
+              <small style="font-size: 13px;color: #7E7C7C;font-weight:bold">Email-Id-->{{i.institute_email}}</small><br>
+              <small style="font-size: 13px;color: #7E7C7C;"></small>
+              <br>
+              <br>
+              <p class="display-4" style="font-size: 21px; font-weight:bold;">Address</p>
+              <small style="font-size: 13px;color: #7E7C7C; font-weight:bold">{{i.address}}<br>{{i.city}},{{i.district}},India.</small>
+              <br>
+              <br>
+            </div>
+						<div class="maps" style="float:right;margin-left:20px;">
+							<a href="{% url 'view_institute_location' %}?user_institute_id={{i.user_id}}/{{i.id}}"><button class="btnimage" style="
+							vertical-align: top; width: 130px; height: 80px;"><img src="{% static 'media/website_images/maps.jpeg' %}" width="120px" height="80px"></button></a>
+						</div>
+						<table  width="100%" style="margin-left:-10px;">
+							<tr>
+								<td>
+									<div class="">
+		              <p class="display-4" style="font-size:16px; font-weight: bold;">More Info</p>
+		              <small style="font-size: 13px; color:#7E7C7C;"><i class="fas fa-check" style="font-size: 16px; color: #5FCB14; padding-right: 6px;"></i>{{i.institute_description}}</small><br>
+		              <!--<small style="font-size: 13px; color:#7E7C7C;"><i class="fas fa-check" style="font-size: 16px; color: #5FCB14; padding-right: 6px;"></i></small><br>
+		              <small style="font-size: 13px; color:#7E7C7C;"><i class="fas fa-check" style="font-size: 16px; color: #5FCB14; padding-right: 6px;"></i></small><br>
+		              <small style="font-size: 13px; color:#7E7C7C;"><i class="fas fa-check" style="font-size: 16px; color: #5FCB14; padding-right: 6px;"></i></small><br>--->
+
+		            </div>
+							</td>
+							</tr>
+						</table>
+          </div>
+        </div>
+      </div>
+			{% endfor %}
+
+    </main>
+
+
+    <!--<main class="institutelist" style="">
+    <p style="font-family:'Arimo', sans-serif; font-size: 25px; position: relative; left: 19px;">Recommendation</p>
+    <p style="font-family: 'Open Sans Condensed', sans-serif;font-size: 19px; position: relative; left:19px;">Institute In Similar Type</p>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card" style="width: 11rem; height: 18rem;">
+            <img class="card-img-top" src="{% static 'media/website_images/b9asd1.gif' %}
+" alt="Aakash main Photo">
+            <div class="card-body">
+              <p class="card-text">Aakash Institute <br><small style="color: #7E7C7C;">PMC Tower, Indra Vihar, Kota.(+91)- 8800013087</small></p>
+            </div>
+          </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card" style="width: 11rem;height: 18rem;">
+            <img class="card-img-top" src="{% static 'media/website_images/allien.jpg'%}
+" alt="Allien photo">
+            <div class="card-body">
+              <p class="card-text">Allien Career Institute <br><small style="color: #7E7C7C;">"SANKALP" CP-6, Indra Vihar Kota (Rajasthan), India 324005.+91-744-2757575</small></p>
+            </div>
+          </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card" style="width: 11rem;margin-top:15px;height: 18rem;">
+            <img class="card-img-top" src="{% static 'media/website_images/resonance-new-color-logo.jpg' %}
+" alt="Resonance Photo">
+            <div class="card-body">
+              <p class="card-text"> Resonance Institute <br> <small style="color: #7E7C7C;">CG Tower, A-46 & 52, IPIA,
+                        Near City Mall, Jhalawar Road,
+            Kota(Raj.) .(0)744 2777777, 2777700 </small></p>
+            </div>
+          </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card" style="width: 11rem;margin-top:15px;height: 18rem;">
+            <img class="card-img-top" src="{ % static 'media/website_images/Vibrant-1.jpg' %}
+" alt="Vibrant">
+            <div class="card-body">
+              <p class="card-text">Vibrant Academy <small style="color: #7E7C7C;">Vibrant Tower : A-14(A),
+            Road No.1, Indraprastha Industrial Area,
+            Kota -324005 (Rajasthan) India.(+91)-  0744-2778899</small></p>
+            </div>
+          </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card" style="width: 11rem;margin-top:15px;height: 18rem;">
+            <img class="card-img-top" src="{% static 'media/website_images/rao-iit-academy-wardha-ad20y.jpg' %}
+" alt="Rao-IIT-Academy Photo">
+            <div class="card-body">
+              <p class="card-text">Rao-IIT-Academy<small style="color: #7E7C7C;">Talwandi-Kota
+            . 022-62433500</small></p>
+            </div>
+          </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card" style="width: 11rem;margin-top:15px;height: 18rem;">
+            <img class="card-img-top" src="{static 'media/website_images/download.jpeg' %}
+" alt="Motion Institute Photo">
+            <div class="card-body">
+              <p class="card-text">Motion IIT Institute <small style="color: #7E7C7C;">394, Rajeev Gandhi Nagar,
+            Kota (Rajasthan) India – 324005.ph-1800-212-1799</small></p>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </main>--->
+
+    <!--footer-->
+    <footer class="page-footer font-small unique-color-dark">
+      <div style="background-color: #813B6A;">
+        <div class="container">
+          <!-- Grid row-->
+          <div class="row py-4 d-flex align-items-center">
+            <!-- Grid column -->
+            <div
+              class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0"
+            >
+              <h6 class="mb-0">Get connected with us on social networks!</h6>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-6 col-lg-7 text-center text-md-right">
+              <!-- Facebook -->
+              <a class="fb-ic">
+                <i class="fab fa-facebook-f white-text mr-4"> </i>
+              </a>
+              <!-- Twitter -->
+              <a class="tw-ic">
+                <i class="fab fa-twitter white-text mr-4"> </i>
+              </a>
+
+              <!--Linkedin -->
+              <a class="li-ic">
+                <i class="fab fa-linkedin-in white-text mr-4"> </i>
+              </a>
+              <!--Instagram-->
+              <a class="ins-ic">
+                <i class="fab fa-instagram white-text"> </i>
+              </a>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row-->
+        </div>
+      </div>
+
+      <!-- Footer Links -->
+      <div class="container text-center text-md-left mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <a class="navbar-brand" href="#">
+              <p class="display-4" style="font-size: 30px; font-family: 'Cinzel', serif; color: #000;">Learncess</p>
+            </a>
+
+						<p>
+              <small>
+                <b>
+                Just over a few years ago,we became victim of something fascinating,How we suppose
+                thing and places need not to be actually up to that mark,same with the education system in India.
+                WE Learncess,basicaaly a startup that helps students and you all to find authenticity of institutes so that you can make better informed decision
+                and founded with strong intention to guide and shape young minds to test themselves in this compititive world.</b>
+							</small>
+            </p>
+          </div>
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4" style="color: #000;">
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+            <hr
+              class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px; color: #000;"
+            />
+            <p>
+              <a href="#!"style=" color: #000;">Your Account</a>
+            </p>
+            <p>
+              <a href="#!"style=" color: #000;">Add Classroom</a>
+            </p>
+            <p>
+              <a href="#!"style=" color: #000;">Registration</a>
+            </p>
+            <p>
+              <a href="#!"style=" color: #000;">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold" style="color: #000;">Contact</h6>
+            <hr
+              class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px;"
+            />
+            <p><i class="fas fa-home mr-3"></i>Dehu Phata, Alandi, PUNE 412105, INDIA</p>
+            <p>
+              <i class="fas fa-envelope mr-3"></i> Learncess@gmail.com
+            </p>
+            <p><i class="fas fa-phone mr-3"></i> + 91 8999632335</p>
+            <p><i class="fas fa-print mr-3"></i> </p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+      <!-- Footer Links -->
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3" style="background-color:#000;">
+        © 2019 Copyright:
+        <a href="http://127.0.0.1:8000">
+          Learncess.com</a
+        >
+      </div>
+    </footer>
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/js/mdb.min.js"></script>
+</body>
+</html>

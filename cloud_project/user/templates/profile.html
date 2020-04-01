@@ -1,0 +1,293 @@
+{% load pwa %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  {% progressive_web_app_meta %}
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Learncess|Profile Details</title>
+    <meta charset="utf-8">
+    <!-- Font Awesome -->
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{%static 'css/profile.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Open+Sans+Condensed:300|Playfair+Display+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel:900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="registrationactual_files/mdb.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg sticky-top" style="box-shadow: 1px 5px 12px 3px #888888 !important;">
+      <div class="container-fluid">
+        {% for i in user_profile %}
+        <a class="navbar-brand" href="{% url 'home1' %}?user_id={{i.user_id}}">
+        {%  endfor %}
+          <p class="display-4" style="font-size: 30px; font-family: 'Cinzel', serif; color: #000;">Learncess</p>
+        </a>
+          <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+          >
+          <span class="navbar-toggler-icon" style="background-color: #000;"></span>
+          </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <!--<div class="dropdown">
+              <button class="dropbtn">Category</button>
+              <div class="dropdown-content">
+                <a href="#">JEE-MAIN&ADVANCE Classes</a>
+                <a href="#">CET&NEET Classes</a>
+                <a href="#">UPSC& OTHER.GOV Classes</a>
+                <a href="#">BANK PO Classes</a>
+                <a href="#">CAT Classes</a>
+                <a href="#">GATE Classes</a>
+                <a href="#">FOUNDATION Classes</a>
+              </div>-->
+            </div>
+          <ul class="navbar-nav ml-auto">
+            {% for j in user_data %}
+            {% for i in user_profile %}
+            <div class="dropdown">
+              <button type="button" class="dropbtn" id="featurebutton"style="width:150px; height: 45px; margin-top:5px;  display: inline-block;margin-left: 15px; border-radius: 36px; background-color: #813B6A;" ><a class="nav-link"   style="font-size: 12px; color: #fff;  font-family: 'Arimo', sans-serif; display: inline;"><b>Features</b></button>
+              <div class="dropdown-content" style="margin-top:5px;margin-left:-50px;">
+                <a href="{% url 'View_profile' %}?user_id={{i.user_id}}">Your Profile</a>
+                <a href="{% url 'gate_question_paper' %}?user_id={{i.user_id}}">Study Material</a>
+                <a href="{% url 'update_institute_detail' %}?user_id={{i.user_id}}">Institute Pannel</a>
+                <a href="{% url 'logout' %}">Logout</a>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container_new" style="position: absolute; top: 315px;margin-left:-10%;">
+      <div class="jumbotron" style="height: 1050px;background-color: #fff;margin-top:-170px;margin-left:400px;width:190%;">
+        <p style="font-size: 1.5rem;"><b>Profile Detail</b></p>
+        <div class="row justify-content-center">
+          <div class="profileimg" style="margin-left:130px;">
+            {% if i.user_profile.url is not None %}
+            <img src="{{i.user_profile.url}}
+  " style="border-radius: 50%; width: 10rem;" alt="User Profile">
+            {% else %}
+            <img src="
+  " style="border-radius: 50%; width: 10rem;" alt="User Profile">
+            {%endif%}
+          </div>
+          <div style="margin-top:30px;">
+            <hr>
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="staticName" class="col-md-2 col-form-label ">First Name:</label>
+                  <div class="col-md-10">
+                    <input type="text" readonly class="form-control-plaintext" id="staticName" value="{{j.first_name}}" style="color: #9C9C9C;">
+                  </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="staticName" class="col-md-2 col-form-label ">location:</label>
+                    <div class="col-md-10">
+                      <input type="text" readonly class="form-control-plaintext" id="staticName" value=" {{i.location}}" style="color: #9C9C9C;">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="staticEmail" class="col-md-2 col-form-label"> Email:</label>
+                    <div class="col-md-10">
+                      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{j.email}}" style="color: #9C9C9C;">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="staticEmail" class="col-md-2 col-form-label">Gender</label>
+                    <div class="col-md-10">
+                      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{i.gender}}" style="color: #9C9C9C;">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="staticGender" class="col-md-2 col-form-label">Mobile No:</label>
+                    <div class="col-md-10">
+                      <input type="text" readonly class="form-control-plaintext" id="staticGender" value="{{i.mobile_no}}" style="color: #9C9C9C;">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="staticGender" class="col-md-2 col-form-label">Education:</label>
+                    <div class="col-md-10">
+                      <input type="text" readonly class="form-control-plaintext" id="staticGender" value=" {{i.Education}}"style="color: #9C9C9C;">
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="staticGender" class="col-md-2 col-form-label">Last Name:</label>
+                    <div class="col-md-10">
+                      <input type="text" readonly class="form-control-plaintext" id="staticGender" value="{{j.last_name}}"style="color: #9C9C9C;">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="staticGender" class="col-md-2 col-form-label">Collge:</label>
+                    <div class="col-md-10">
+                      <input type="text" readonly class="form-control-plaintext" id="staticGender" value="{{i.collage_name}}"style="color: #9C9C9C;">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="staticGender" class="col-md-2 col-form-label">Field of Interest:</label>
+                    <div class="col-md-10">
+                      <input type="text" readonly class="form-control-plaintext" id="staticGender" value="{{i.interested_filed}}"style="color: #9C9C9C;">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="staticGender" class="col-md-2 col-form-label">Bio:</label>
+                    <div class="col-md-10">
+                      <p type="text" readonly class="form-control-plaintext" id="staticGender" value="{{i.user_bio}}"style="color: #9C9C9C;">{{i.user_bio}}</p>
+                    </div>
+                  </div>
+
+                  </div>
+                  <div class="profileedit">
+                    <a href="{% url 'edit_profile' %}?user_id={{i.user_id}}"><button class="btn btn-outline " style="border-radius: 36px; background-color: #813B6A; color: #fff;width: 8rem; margin-top: 3rem;">Edit</button></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    {% endfor %}
+    {% endfor %}
+     <footer class="page-footer font-small unique-color-dark" style="top: 1500px !important;">
+      <div style="background-color: #813B6A;">
+        <div class="container">
+          <!-- Grid row-->
+          <div class="row py-4 d-flex align-items-center">
+            <!-- Grid column -->
+            <div
+              class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0"
+            >
+              <h6 class="mb-0">Get connected with us on social networks!</h6>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+              <div class="col-md-6 col-lg-7 text-center text-md-right">
+                <!-- Facebook -->
+                <a class="fb-ic">
+                  <i class="fab fa-facebook-f white-text mr-4"> </i>
+                </a>
+                <!-- Twitter -->
+                <a class="tw-ic">
+                  <i class="fab fa-twitter white-text mr-4"> </i>
+                </a>
+
+                <!--Linkedin -->
+                <a class="li-ic">
+                  <i class="fab fa-linkedin-in white-text mr-4"> </i>
+                </a>
+                <!--Instagram-->
+                <a class="ins-ic">
+                  <i class="fab fa-instagram white-text"> </i>
+                </a>
+              </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row-->
+        </div>
+      </div>
+
+      <!-- Footer Links -->
+      <div class="container text-center text-md-left mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <a class="navbar-brand" href="#">
+              <p class="display-4" style="font-size: 30px; font-family: 'Cinzel', serif; color: #000;">Learncess</p>
+            </a>
+            <hr
+              class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px;"
+            />
+            <p>
+              <small>
+                <b>
+                Just over a few years ago,we became victim of something fascinating,How we suppose
+                thing and places need not to be actually up to that mark,same with the education system in India.
+                WE Learncess,basicaaly a startup that helps students and you all to find authenticity of institutes so that you can make better informed decision
+                and founded with strong intention to guide and shape young minds to test themselves in this compititive world.</b>
+
+              </small>
+            </p>
+          </div>
+
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+            <hr
+              class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px;"
+            />
+            <p>
+              <a href="#!">Your Account</a>
+            </p>
+            <p>
+              <a href="#!">Add Classroom</a>
+            </p>
+            <p>
+              <a href="#!">Registration</a>
+            </p>
+            <p>
+              <a href="#!">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Contact</h6>
+            <hr
+              class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px;"
+            />
+            <p><i class="fas fa-home mr-3"></i> Dehu Phata,Alandi, PUNE 412105, INDIA</p>
+            <p>
+              <i class="fas fa-envelope mr-3"></i> Learncess@gmail.com
+            </p>
+            <p><i class="fas fa-phone mr-3"></i> + 91 8999632335</p>
+            <p><i class="fas fa-print mr-3"></i></p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+      <!-- Footer Links -->
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">
+        © 2019 Copyright:
+        <a href="https://mdbootstrap.com/education/bootstrap/">
+          Learncess.com</a
+        >
+      </div>
+    </footer>
+
+      <script type="text/javascript" src="registrationactual_files/jquery.js"></script>
+      <!-- Bootstrap tooltips -->
+      <script type="text/javascript" src="registrationactual_files/popper.js"></script>
+      <!-- Bootstrap core JavaScript -->
+      <script type="text/javascript" src="registrationactual_files/bootstrap.js"></script>
+      <!-- MDB core JavaScript -->
+      <script type="text/javascript" src="registrationactual_files/mdb.js"></script><div class="hiddendiv common"></div>
+
+
+</body>
+</html>

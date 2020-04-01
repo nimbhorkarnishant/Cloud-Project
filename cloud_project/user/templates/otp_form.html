@@ -1,0 +1,202 @@
+{%load pwa %}
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+  {% progressive_web_app_meta %}
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Learncess|Email Verification</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{%static 'otp.css'%}">
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Open+Sans+Condensed:300|Playfair+Display+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel:900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <script src="https://use.fontawesome.com/2fcd33e13d.js"></script>
+    <!-- Material Design Bootstrap -->
+    <link href="registrationactual_files/mdb.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg sticky-top" style="box-shadow: 1px 5px 12px 3px #888888 !important;">
+      <div class="container-fluid">
+        {% for i in latest_user %}
+        <a class="navbar-brand" href="{url 'home1'}?user_id={{i.id}}">
+          <p class="display-4" style="font-size: 30px; font-family: 'Cinzel', serif; color: #000;">Learncess</p>
+        </a>
+        {% endfor %}
+          <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+          >
+          <span class="navbar-toggler-icon" style="background-color: #000;"></span>
+          </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <!--<div class="dropdown">
+              <button class="dropbtn">Category</button>
+              <div class="dropdown-content">
+                <a href="#">JEE-MAIN&ADVANCE Classes</a>
+                <a href="#">CET&NEET Classes</a>
+                <a href="#">UPSC& OTHER.GOV Classes</a>
+                <a href="#">BANK PO Classes</a>
+                <a href="#">CAT Classes</a>
+                <a href="#">GATE Classes</a>
+                <a href="#">FOUNDATION Classes</a>
+              </div>-->
+            </div>
+        </div>
+      </div>
+    </nav>
+    <div style="margin-top:200px;margin-left:30%;width:400px;height:300px;background-color:#FFF">
+      {% for i in latest_user %}
+      {% for j in otp_generated %}
+    <form method="post" action="/otp_validiation/?user_id={{i.id}}/{{j.otp_generated}}">
+      {% csrf_token %}
+      <center><h4>Email Verification</h4></center>
+      <div class="form-group col-md-12">
+        <label for="inputEmail4" class="active">OTP:</label>
+        <input type="text" class="form-control" id="inputEmail4" placeholder="Enter your otp" required='required' name='otp'>
+      </div>
+      <br>
+      <button type="submit" value="" style="width:80px; height: 40px;  display: inline-block;margin-left:150px; margin-top:-10px;color:#FFF;border-radius: 36px; background-color: #813B6A;">Verify</button>
+    </form>
+    {%endfor%}
+    {% endfor %}
+  </div>
+
+     <footer class="page-footer font-small unique-color-dark" style="top: 2000px !important;">
+      <div style="background-color: #813B6A;">
+        <div class="container">
+          <!-- Grid row-->
+          <div class="row py-4 d-flex align-items-center">
+            <!-- Grid column -->
+            <div
+              class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0"
+            >
+              <h6 class="mb-0">Get connected with us on social networks!</h6>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+              <div class="col-md-6 col-lg-7 text-center text-md-right">
+                <!-- Facebook -->
+                <a class="fb-ic">
+                  <i class="fab fa-facebook-f white-text mr-4"> </i>
+                </a>
+                <!-- Twitter -->
+                <a class="tw-ic">
+                  <i class="fab fa-twitter white-text mr-4"> </i>
+                </a>
+
+                <!--Linkedin -->
+                <a class="li-ic">
+                  <i class="fab fa-linkedin-in white-text mr-4"> </i>
+                </a>
+                <!--Instagram-->
+                <a class="ins-ic">
+                  <i class="fab fa-instagram white-text"> </i>
+                </a>
+              </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row-->
+        </div>
+      </div>
+
+      <!-- Footer Links -->
+      <div class="container text-center text-md-left mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <a class="navbar-brand" href="#">
+              <p class="display-4" style="font-size: 30px; font-family: 'Cinzel', serif; color: #000;">Learncess</p>
+            </a>
+            <hr
+              class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px;"
+            />
+            <p>
+              <small>
+                <b>
+                Just over a few years ago,we became victim of something fascinating,How we suppose
+                thing and places need not to be actually up to that mark,same with the education system in India.
+                WE Learncess,basicaaly a startup that helps students and you all to find authenticity of institutes so that you can make better informed decision
+                and founded with strong intention to guide and shape young minds to test themselves in this compititive world.</b>
+
+              </small>
+            </p>
+          </div>
+
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+            <hr
+              class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px;"
+            />
+            <p>
+              <a href="#!">Your Account</a>
+            </p>
+            <p>
+              <a href="#!">Add Classroom</a>
+            </p>
+            <p>
+              <a href="#!">Registration</a>
+            </p>
+            <p>
+              <a href="#!">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Contact</h6>
+            <hr
+              class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto"
+              style="width: 60px;"
+            />
+            <p><i class="fas fa-home mr-3"></i> Dehu Phata,Alandi, PUNE 412105, INDIA</p>
+            <p>
+              <i class="fas fa-envelope mr-3"></i> Learncess@gmail.com
+            </p>
+            <p><i class="fas fa-phone mr-3"></i> + 91 8999632335</p>
+            <p><i class="fas fa-print mr-3"></i> </p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+      <!-- Footer Links -->
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">
+        © 2019 Copyright:
+        <a href="https://mdbootstrap.com/education/bootstrap/">
+          Learncess.com</a
+        >
+      </div>
+    </footer>
+
+      <script type="text/javascript" src="registrationactual_files/jquery.js"></script>
+      <!-- Bootstrap tooltips -->
+      <script type="text/javascript" src="registrationactual_files/popper.js"></script>
+      <!-- Bootstrap core JavaScript -->
+      <script type="text/javascript" src="registrationactual_files/bootstrap.js"></script>
+      <!-- MDB core JavaScript -->
+      <script type="text/javascript" src="registrationactual_files/mdb.js"></script>
+      <script type="text/javascript" src="/home/sandesh/Desktop/NewLearncess/POSTS/Commentbox.js"></script>
+      <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+</body>
+</html>
