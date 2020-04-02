@@ -112,10 +112,11 @@ WSGI_APPLICATION = 'cloud_project.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'cloud_project',
         'user':'cloudproject@admin',
         'password':'cloud@123'
+        'PORT': '3306',
     }
 }
 
