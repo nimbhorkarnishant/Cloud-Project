@@ -115,7 +115,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'cloud_project',
         'user':'cloudproject@admin',
-        'password':'cloud@123'
+        'password':'cloud@123',
         'PORT': '3306',
     }
 }
