@@ -36,7 +36,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'bs(qfudk=zqzxj&9hhcnt_%t*q8@+x)s4_gxb8#lp^egmv+han'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -112,10 +112,11 @@ WSGI_APPLICATION = 'cloud_project.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'cloud_project',
         'user':'cloudproject@admin',
-        'password':'cloud@123'
+        'password':'cloud@123',
+        'PORT': '3306',
     }
 }
 
