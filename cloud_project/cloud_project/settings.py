@@ -198,8 +198,8 @@ EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT='465'
 EMAIL_USE_SSL=True
-EMAIL_HOST_USER='learncess@gmail.com'
-EMAIL_HOST_PASSWORD="learncess2512@"
+EMAIL_HOST_USER='your Email id'
+EMAIL_HOST_PASSWORD="your email paswword"
 
 PWA_APP_NAME = 'Learncess'
 PWA_APP_THEME_COLOR = '#0A0302'
